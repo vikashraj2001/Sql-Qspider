@@ -1,0 +1,10 @@
+SQL> select ename
+  2  from emp
+  3  where sal<1100 and Job in 'CLERK';
+
+ENAME                                                                                               
+----------                                                                                          
+SMITH                                                                                               
+JAMES                                                                                               
+
+SQL> spool off

@@ -1,0 +1,24 @@
+SQL> select count(*)
+  2  from emp
+  3  where ename like '%A%"
+  4  group by job;
+ERROR:
+ORA-01756: quoted string not properly terminated 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select count(*)
+  2  from emp
+  3  where ename like '%A%'
+  4* group by job
+SQL> /
+
+  COUNT(*)                                                                                          
+----------                                                                                          
+         3                                                                                          
+         2                                                                                          
+         2                                                                                          
+
+SQL> spool off

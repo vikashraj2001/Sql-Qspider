@@ -1,0 +1,19 @@
+SQL> select ename
+  2  from emp
+  3  where hiredate >'01-JAN-81' and deptno in (10,30);
+
+ENAME                                                                                               
+----------                                                                                          
+ALLEN                                                                                               
+WARD                                                                                                
+MARTIN                                                                                              
+BLAKE                                                                                               
+CLARK                                                                                               
+KING                                                                                                
+TURNER                                                                                              
+JAMES                                                                                               
+MILLER                                                                                              
+
+9 rows selected.
+
+SQL> spool off

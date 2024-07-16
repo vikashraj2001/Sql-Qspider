@@ -1,0 +1,55 @@
+SQL> select deptno
+  2  from dept
+  3  ;
+
+    DEPTNO                                                                                          
+----------                                                                                          
+        10                                                                                          
+        20                                                                                          
+        30                                                                                          
+        40                                                                                          
+
+SQL> select dname
+  2  from dept
+  3  where deptno in( select mgr
+  4                     from emp
+  5                         where empno in (selct mgr
+  6                                             from emp
+  7                                             where ename='JONES'));
+                       where empno in (selct mgr
+                                             *
+ERROR at line 5:
+ORA-00907: missing right parenthesis 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select dname
+  2  from dept
+  3  where deptno in( select mgr
+  4                     from emp
+  5                         where empno in (select mgr
+  6                                             from emp
+  7*                                            where ename='JONES'))
+SQL> /
+
+no rows selected
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select dname
+  2  from dept
+  3  where deptno in( select deptno
+  4                     from emp
+  5                         where empno in (select mgr
+  6                                             from emp
+  7*                                            where ename='JONES'))
+SQL> /
+
+DNAME                                                                                               
+--------------                                                                                      
+ACCOUNTING                                                                                          
+
+SQL> spool off

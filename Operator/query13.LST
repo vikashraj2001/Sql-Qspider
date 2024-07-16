@@ -1,0 +1,37 @@
+SQL> select ename
+  2  from emp
+  3  where deptn in(10,20,30,40);
+where deptn in(10,20,30,40)
+      *
+ERROR at line 3:
+ORA-00904: "DEPTN": invalid identifier 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select ename
+  2  from emp
+  3* where deptno in(10,20,30,40)
+SQL> /
+
+ENAME                                                                                               
+----------                                                                                          
+SMITH                                                                                               
+ALLEN                                                                                               
+WARD                                                                                                
+JONES                                                                                               
+MARTIN                                                                                              
+BLAKE                                                                                               
+CLARK                                                                                               
+SCOTT                                                                                               
+KING                                                                                                
+TURNER                                                                                              
+ADAMS                                                                                               
+JAMES                                                                                               
+FORD                                                                                                
+MILLER                                                                                              
+
+14 rows selected.
+
+SQL> spool off

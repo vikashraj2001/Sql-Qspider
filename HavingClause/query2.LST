@@ -1,0 +1,23 @@
+SQL> 
+SQL> 
+SQL> select deptno,count(*)
+  2  from emp
+  3  where job='CLERK'
+  4  group by deptno
+  5  having count(*)>=3;
+
+no rows selected
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select deptno,count(*)
+  2  from emp
+  3  where job='CLERK'
+  4  group by deptno
+  5* having count(job)>=3
+SQL> /
+
+no rows selected
+
+SQL> spool off

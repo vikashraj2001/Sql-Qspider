@@ -1,0 +1,29 @@
+SQL> select sum(sal)
+  2  from emp
+  3  group by job;
+
+  SUM(SAL)                                                                                          
+----------                                                                                          
+      4150                                                                                          
+      5600                                                                                          
+      5000                                                                                          
+      8275                                                                                          
+      6000                                                                                          
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select sum(sal),job
+  2  from emp
+  3* group by job
+SQL> /
+
+  SUM(SAL) JOB                                                                                      
+---------- ---------                                                                                
+      4150 CLERK                                                                                    
+      5600 SALESMAN                                                                                 
+      5000 PRESIDENT                                                                                
+      8275 MANAGER                                                                                  
+      6000 ANALYST                                                                                  
+
+SQL> spool off

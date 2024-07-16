@@ -1,0 +1,21 @@
+SQL> 
+SQL> select
+  2  ;
+
+*
+ERROR at line 2:
+ORA-00936: missing expression 
+
+
+SQL> select sal
+  2  from emp
+  3  where job in 'SALESMAN';
+
+       SAL                                                                      
+----------                                                                      
+      1600                                                                      
+      1250                                                                      
+      1250                                                                      
+      1500                                                                      
+
+SQL> spool off

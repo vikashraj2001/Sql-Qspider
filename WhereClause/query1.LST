@@ -1,0 +1,35 @@
+SQL> select sal*12
+  2  from emp
+  3  where ename is "SMITH";
+where ename is "SMITH"
+               *
+ERROR at line 3:
+ORA-00908: missing NULL keyword 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select sal*12
+  2  from emp
+  3* where ename is 'SMITH'
+SQL> /
+where ename is 'SMITH'
+               *
+ERROR at line 3:
+ORA-00908: missing NULL keyword 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select sal*12
+  2  from emp
+  3* where ename ='SMITH'
+SQL> /
+
+    SAL*12                                                                      
+----------                                                                      
+      9600                                                                      
+
+SQL> spool off

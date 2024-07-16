@@ -1,0 +1,9 @@
+SQL> select *
+  2  from emp
+  3  where comm>sal;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO               
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------               
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30               
+
+SQL> spool off

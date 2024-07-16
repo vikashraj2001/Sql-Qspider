@@ -1,0 +1,34 @@
+SQL> select count(max(sal))
+  2  from emp
+  3  group by job;
+
+COUNT(MAX(SAL))                                                                                     
+---------------                                                                                     
+              5                                                                                     
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select count(max(sal)),job
+  2  from emp
+  3* group by job
+SQL> /
+select count(max(sal)),job
+                       *
+ERROR at line 1:
+ORA-00937: not a single-group group function 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select count(max(sal))
+  2  from emp
+  3* group by job
+SQL> /
+
+COUNT(MAX(SAL))                                                                                     
+---------------                                                                                     
+              5                                                                                     
+
+SQL> spool off

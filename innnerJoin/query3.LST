@@ -1,0 +1,29 @@
+SQL> select dept.dname, emp.sal*12
+  2  from emp.dept
+  3  where  dept.deptno=emp.deptno and emp.sal>2340;
+from emp.dept
+         *
+ERROR at line 2:
+ORA-00942: table or view does not exist 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select dept.dname, emp.sal*12
+  2  from emp,dept
+  3* where  dept.deptno=emp.deptno and emp.sal>2340
+SQL> /
+
+DNAME          EMP.SAL*12                                                                           
+-------------- ----------                                                                           
+RESEARCH            35700                                                                           
+SALES               34200                                                                           
+ACCOUNTING          29400                                                                           
+RESEARCH            36000                                                                           
+ACCOUNTING          60000                                                                           
+RESEARCH            36000                                                                           
+
+6 rows selected.
+
+SQL> spool of

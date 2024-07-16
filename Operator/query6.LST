@@ -1,0 +1,39 @@
+SQL> select ename,sal,sal*12 ,deptno
+  2  from emp
+  3  where depto=20 ans sal>1100 and sal*12>12000;
+where depto=20 ans sal>1100 and sal*12>12000
+               *
+ERROR at line 3:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> 
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select ename,sal,sal*12 ,deptno
+  2  from emp
+  3* where depto=20 and sal>1100 and sal*12>12000
+SQL> /
+where depto=20 and sal>1100 and sal*12>12000
+      *
+ERROR at line 3:
+ORA-00904: "DEPTO": invalid identifier 
+
+
+SQL> 
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select ename,sal,sal*12 ,deptno
+  2  from emp
+  3* where deptno=20 and sal>1100 and sal*12>12000
+SQL> /
+
+ENAME             SAL     SAL*12     DEPTNO                                                         
+---------- ---------- ---------- ----------                                                         
+JONES            2975      35700         20                                                         
+SCOTT            3000      36000         20                                                         
+FORD             3000      36000         20                                                         
+
+SQL> spool "C:\Users\Rajpootana\Desktop\SQL Qspider\Operator\query7";

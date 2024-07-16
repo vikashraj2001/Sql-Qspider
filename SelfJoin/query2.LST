@@ -1,0 +1,27 @@
+SQL> select e1.ename ,e2.sal as "MANAGERS SAL"
+  2  from emp e1 ,emp e2
+  3  where e1.mgr=e2.empno and e1.sal>2300;
+
+ENAME      MANAGERS SAL                                                                             
+---------- ------------                                                                             
+JONES              5000                                                                             
+BLAKE              5000                                                                             
+CLARK              5000                                                                             
+SCOTT              2975                                                                             
+FORD               2975                                                                             
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select e1.ename ,e2.sal as "MANAGERS SAL"
+  2  from emp e1 ,emp e2
+  3* where e1.mgr=e2.empno and e1.sal>2300 and e1.job='MANAGER'
+SQL> /
+
+ENAME      MANAGERS SAL                                                                             
+---------- ------------                                                                             
+JONES              5000                                                                             
+BLAKE              5000                                                                             
+CLARK              5000                                                                             
+
+SQL> spool off

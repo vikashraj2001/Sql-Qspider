@@ -1,0 +1,11 @@
+SQL> select sal
+  2  from emp
+  3  where empno in(select mgr
+  4                       from emp
+  5                         where ename='MILLER');
+
+       SAL                                                                                          
+----------                                                                                          
+      2450                                                                                          
+
+SQL> spool off

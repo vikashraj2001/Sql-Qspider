@@ -1,0 +1,56 @@
+SQL> select count(sal)
+  2  from emp
+  3  group by emp;
+group by emp
+         *
+ERROR at line 3:
+ORA-00904: "EMP": invalid identifier 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select count(sal)
+  2  from emp
+  3* group by sal
+SQL> /
+
+COUNT(SAL)                                                                                          
+----------                                                                                          
+         1                                                                                          
+         1                                                                                          
+         1                                                                                          
+         2                                                                                          
+         1                                                                                          
+         1                                                                                          
+         1                                                                                          
+         2                                                                                          
+         1                                                                                          
+         1                                                                                          
+         1                                                                                          
+         1                                                                                          
+
+12 rows selected.
+
+SQL> select sal,count(*)
+  2  from emp
+  3  group by sal;
+
+       SAL   COUNT(*)                                                                               
+---------- ----------                                                                               
+      2450          1                                                                               
+      5000          1                                                                               
+      1300          1                                                                               
+      1250          2                                                                               
+      2850          1                                                                               
+      2975          1                                                                               
+      1100          1                                                                               
+      3000          2                                                                               
+       800          1                                                                               
+      1600          1                                                                               
+      1500          1                                                                               
+       950          1                                                                               
+
+12 rows selected.
+
+SQL> spool off

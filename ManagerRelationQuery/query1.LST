@@ -1,0 +1,11 @@
+SQL> select *
+  2  from emp
+  3  where empno in (select mgr
+  4                    from emp
+  5                     where ename='SMITH');
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO               
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------               
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20               
+
+SQL> spool of

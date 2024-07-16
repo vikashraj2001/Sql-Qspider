@@ -1,0 +1,32 @@
+SQL> select dept.dname,emp.mge
+  2  from emp,dept
+  3  where emp.deptno in dept.deptno and job in 'MANAGER';
+select dept.dname,emp.mge
+                  *
+ERROR at line 1:
+ORA-00904: "EMP"."MGE": invalid identifier 
+
+
+SQL> wd
+SP2-0042: unknown command "wd" - rest of line ignored.
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select dept.dname,emp.mgr
+  2  from emp,dept
+  3* where emp.deptno in dept.deptno and job in 'MANAGER'
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select dept.dname,emp.mgr
+  2  from emp,dept
+  3* where emp.deptno in dept.deptno and emp.job in 'MANAGER'
+SQL> /
+
+DNAME                 MGR                                                                           
+-------------- ----------                                                                           
+RESEARCH             7839                                                                           
+SALES                7839                                                                           
+ACCOUNTING           7839                                                                           
+
+SQL> spool of

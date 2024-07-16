@@ -1,0 +1,21 @@
+SQL> select sum(sal)
+  2  from emp
+  3  where job in 'SALESMANS'
+  4  group by deptno;
+
+no rows selected
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select sum(sal)
+  2  from emp
+  3  where job in 'SALESMAN'
+  4* group by deptno
+SQL> /
+
+  SUM(SAL)                                                                                          
+----------                                                                                          
+      5600                                                                                          
+
+SQL> spool off

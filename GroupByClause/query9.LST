@@ -1,0 +1,26 @@
+SQL> select max(sal)
+  2  from emp
+  3  group by deptno;
+
+  MAX(SAL)                                                                                          
+----------                                                                                          
+      2850                                                                                          
+      3000                                                                                          
+      5000                                                                                          
+
+SQL> 
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select max(sal),deptno
+  2  from emp
+  3* group by deptno
+SQL> /
+
+  MAX(SAL)     DEPTNO                                                                               
+---------- ----------                                                                               
+      2850         30                                                                               
+      3000         20                                                                               
+      5000         10                                                                               
+
+SQL> spool off

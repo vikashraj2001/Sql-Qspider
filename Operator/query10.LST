@@ -1,0 +1,21 @@
+SQL> select *
+  2  from emp
+  3  where job in 'PRESIDENT' and sal>=4000;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO               
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------               
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10               
+
+SQL> e
+SP2-0042: unknown command "e" - rest of line ignored.
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select *
+  2  from emp
+  3* where job in 'PRESIDENT' and sal=4000
+SQL> /
+
+no rows selected
+
+SQL> spool off

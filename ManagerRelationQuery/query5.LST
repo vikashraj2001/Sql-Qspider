@@ -1,0 +1,29 @@
+SQL> select loc
+  2  from depy
+  3  ed
+  4  ;
+from depy
+     *
+ERROR at line 2:
+ORA-00942: table or view does not exist 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select loc
+  2  from dept
+  3  where deptno in (select deptno
+  4                        from emp
+  5                             where empno in(select mgr
+  6                                             from emp
+  7                                              where empno in(select mgr
+  8                                                                      from emp
+  9*                                                                          where ename in 'SMITH')))
+ 10  /
+
+LOC                                                                                                 
+-------------                                                                                       
+DALLAS                                                                                              
+
+SQL> spool off

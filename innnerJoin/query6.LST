@@ -1,0 +1,25 @@
+SQL> select dpet.dname ,emp.job
+  2  from emp, dept
+  3  where emp.deptno in dept.deptno and dept.dname like 'S%' and emp.job like 'S%';
+select dpet.dname ,emp.job
+       *
+ERROR at line 1:
+ORA-00904: "DPET"."DNAME": invalid identifier 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select dept.dname ,emp.job
+  2  from emp, dept
+  3* where emp.deptno in dept.deptno and dept.dname like 'S%' and emp.job like 'S%'
+SQL> /
+
+DNAME          JOB                                                                                  
+-------------- ---------                                                                            
+SALES          SALESMAN                                                                             
+SALES          SALESMAN                                                                             
+SALES          SALESMAN                                                                             
+SALES          SALESMAN                                                                             
+
+SQL> spool off

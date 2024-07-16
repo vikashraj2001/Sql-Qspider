@@ -1,0 +1,25 @@
+SQL> select emp.*, sal*12
+  2  from emp
+  3  where deptno=30 and job and 'SALESMAN' and sal*12>14000;
+where deptno=30 and job and 'SALESMAN' and sal*12>14000
+                        *
+ERROR at line 3:
+ORA-00920: invalid relational operator 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select emp.*, sal*12
+  2  from emp
+  3* where deptno=30 and job in 'SALESMAN' and sal*12>14000
+SQL> /
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO     SAL*12    
+---------- ---------- --------- ---------- --------- ---------- ---------- ---------- ----------    
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30      19200    
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30      15000    
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30      15000    
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30      18000    
+
+SQL> spool off

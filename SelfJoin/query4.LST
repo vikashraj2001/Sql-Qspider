@@ -1,0 +1,40 @@
+SQL> select e1.ename , e2,hiredate
+  2  from emp e1, emp e2
+  3  where e1.mgr=e2.empno and e1.job='MANAGER' and e2.hiredate='01-JAN-1982';
+select e1.ename , e2,hiredate
+                     *
+ERROR at line 1:
+ORA-00918: column ambiguously defined 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select e1.ename , e2.hiredate
+  2  from emp e1, emp e2
+  3* where e1.mgr=e2.empno and e1.job='MANAGER' and e2.hiredate='01-JAN-1982'
+SQL> /
+
+no rows selected
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select e1.ename , e2.hiredate
+  2  from emp e1, emp e2
+  3* where e1.mgr=e2.empno and e2.hiredate='01-JAN-1982'
+SQL> /
+
+no rows selected
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select e1.ename , e2.hiredate
+  2  from emp e1, emp e2
+  3* where e1.mgr=e2.empno and e1.hiredate='01-JAN-1982'
+SQL> /
+
+no rows selected
+
+SQL> spool off

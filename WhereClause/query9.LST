@@ -1,0 +1,9 @@
+SQL> select ename,hiredate
+  2  from emp
+  3  where hiredate<'01-JAN-1981';
+
+ENAME      HIREDATE                                                                                 
+---------- ---------                                                                                
+SMITH      17-DEC-80                                                                                
+
+SQL> spool off

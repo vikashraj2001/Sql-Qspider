@@ -1,0 +1,32 @@
+SQL> select dname , empno
+  2  from emp,deptno
+  3  where emp.deptno =dept.deptno and empno in(7839,7902) and dept.loc='NEWYORK';
+from emp,deptno
+         *
+ERROR at line 2:
+ORA-00942: table or view does not exist 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select dname , empno
+  2  from emp,dept
+  3* where emp.deptno =dept.deptno and empno in(7839,7902) and dept.loc='NEWYORK'
+SQL> /
+
+no rows selected
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select dname , empno
+  2  from emp,dept
+  3* where emp.deptno =dept.deptno and empno in(7839,7902) and dept.loc='NEW YORK'
+SQL> /
+
+DNAME               EMPNO                                                                           
+-------------- ----------                                                                           
+ACCOUNTING           7839                                                                           
+
+SQL> spool off

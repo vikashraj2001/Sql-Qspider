@@ -1,0 +1,12 @@
+SQL> select emp.ename,dept.dname
+  2  from emp, dept
+  3  where dept.deptno =emp.deptno and emp.job='SALESMAN';
+
+ENAME      DNAME                                                                                    
+---------- --------------                                                                           
+ALLEN      SALES                                                                                    
+WARD       SALES                                                                                    
+MARTIN     SALES                                                                                    
+TURNER     SALES                                                                                    
+
+SQL> spool off

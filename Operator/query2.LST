@@ -1,0 +1,22 @@
+SQL> select ename , hirdate
+  2  from emp
+  3  where job in 'MANAGER' and deptno=30;
+select ename , hirdate
+               *
+ERROR at line 1:
+ORA-00904: "HIRDATE": invalid identifier 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select ename , hiredate
+  2  from emp
+  3* where job in 'MANAGER' and deptno=30
+SQL> /
+
+ENAME      HIREDATE                                                                                 
+---------- ---------                                                                                
+BLAKE      01-MAY-81                                                                                
+
+SQL> spool off

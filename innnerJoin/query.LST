@@ -1,0 +1,37 @@
+SQL> select emp.ename,dept.dname
+  2  from emp.dept
+  3  where emp.deptno =dept.deptno and dept.dname like '%A%';
+from emp.dept
+         *
+ERROR at line 2:
+ORA-00942: table or view does not exist 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select emp.ename,dept.dname
+  2  from emp,dept
+  3* where emp.deptno =dept.deptno and dept.dname like '%A%'
+SQL> /
+
+ENAME      DNAME                                                                                    
+---------- --------------                                                                           
+SMITH      RESEARCH                                                                                 
+ALLEN      SALES                                                                                    
+WARD       SALES                                                                                    
+JONES      RESEARCH                                                                                 
+MARTIN     SALES                                                                                    
+BLAKE      SALES                                                                                    
+CLARK      ACCOUNTING                                                                               
+SCOTT      RESEARCH                                                                                 
+KING       ACCOUNTING                                                                               
+TURNER     SALES                                                                                    
+ADAMS      RESEARCH                                                                                 
+JAMES      SALES                                                                                    
+FORD       RESEARCH                                                                                 
+MILLER     ACCOUNTING                                                                               
+
+14 rows selected.
+
+SQL> spool of

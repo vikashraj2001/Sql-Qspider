@@ -1,0 +1,26 @@
+SQL> select ename,dname
+  2  from emp, dept
+  3  where emp.deptno = dept.deptno and comm is not null and emp.deptno in(10,30);
+
+ENAME      DNAME                                                                                    
+---------- --------------                                                                           
+ALLEN      SALES                                                                                    
+WARD       SALES                                                                                    
+MARTIN     SALES                                                                                    
+TURNER     SALES                                                                                    
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select ename,dname
+  2  from emp, dept
+  3* where emp.deptno = dept.deptno and comm is not null and comm !=0 and emp.deptno in(10,30)
+SQL> /
+
+ENAME      DNAME                                                                                    
+---------- --------------                                                                           
+ALLEN      SALES                                                                                    
+WARD       SALES                                                                                    
+MARTIN     SALES                                                                                    
+
+SQL> spool off

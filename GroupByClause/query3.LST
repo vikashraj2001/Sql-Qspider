@@ -1,0 +1,28 @@
+SQL> select count(*)
+  2  from emp
+  3  where job in 'MANAGER'
+  4  group by deptno;
+
+  COUNT(*)                                                                                          
+----------                                                                                          
+         1                                                                                          
+         1                                                                                          
+         1                                                                                          
+
+SQL> 
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select count(*),deptno
+  2  from emp
+  3  where job in 'MANAGER'
+  4* group by deptno
+SQL> /
+
+  COUNT(*)     DEPTNO                                                                               
+---------- ----------                                                                               
+         1         30                                                                               
+         1         20                                                                               
+         1         10                                                                               
+
+SQL> spool off

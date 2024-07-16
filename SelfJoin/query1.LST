@@ -1,0 +1,25 @@
+SQL> select e1.ename , e2.job
+  2  where emp e1, emp e2
+  3  where e1.mgr=e2.empno and e1.job=
+  4  'MANAGER' and e2.deptno in (10,20);
+where emp e1, emp e2
+*
+ERROR at line 2:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select e1.ename , e2.job
+  2  from emp e1, emp e2
+  3* where e1.mgr=e2.empno and e1.job='MANAGER' and e2.deptno in (10,20)
+SQL> /
+
+ENAME      JOB                                                                                      
+---------- ---------                                                                                
+JONES      PRESIDENT                                                                                
+BLAKE      PRESIDENT                                                                                
+CLARK      PRESIDENT                                                                                
+
+SQL> spool off

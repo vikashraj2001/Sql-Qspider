@@ -1,0 +1,12 @@
+SQL> select ename ,sal*12
+  2  from emp
+  3  where  job in ('MANAGER','CLERK') and deptno in (10,30);
+
+ENAME          SAL*12                                                                               
+---------- ----------                                                                               
+BLAKE           34200                                                                               
+CLARK           29400                                                                               
+JAMES           11400                                                                               
+MILLER          15600                                                                               
+
+SQL> spool off

@@ -1,0 +1,39 @@
+SQL> select avg(sal)
+  2  from emp
+  3  where job not in(20)
+  4  group by deptno;
+where job not in(20)
+      *
+ERROR at line 3:
+ORA-01722: invalid number 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select avg(sal)
+  2  from emp
+  3  where deptno not in(20)
+  4* group by deptno
+SQL> /
+
+  AVG(SAL)                                                                                          
+----------                                                                                          
+1566.66667                                                                                          
+2916.66667                                                                                          
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select avg(sal),deptno
+  2  from emp
+  3  where deptno not in(20)
+  4* group by deptno
+SQL> /
+
+  AVG(SAL)     DEPTNO                                                                               
+---------- ----------                                                                               
+1566.66667         30                                                                               
+2916.66667         10                                                                               
+
+SQL> spool "C:\Users\Rajpootana\Desktop\SQL Qspider\GroupByClause\query6"

@@ -1,0 +1,13 @@
+SQL> select *
+  2  from emp
+  3  where empno in (select mgr
+  4                   from emp
+  5                    where empno in (select mgr
+  6                                    from emp
+  7                                    where ename='ADAMS'));
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO               
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------               
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20               
+
+SQL> spool off

@@ -1,0 +1,37 @@
+SQL> select count(avg(sal))
+  2  from emp
+  3  where sal>2000
+  4  group by deptno;
+
+COUNT(AVG(SAL))                                                                                     
+---------------                                                                                     
+              3                                                                                     
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select count(avg(sal)),deptno
+  2  from emp
+  3  where sal>2000
+  4* group by deptno
+SQL> /
+select count(avg(sal)),deptno
+                       *
+ERROR at line 1:
+ORA-00937: not a single-group group function 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select count(avg(sal))
+  2  from emp
+  3  where sal>2000
+  4* group by deptno
+SQL> /
+
+COUNT(AVG(SAL))                                                                                     
+---------------                                                                                     
+              3                                                                                     
+
+SQL> spool off
