@@ -1,0 +1,11 @@
+SQL> select  job
+  2  from emp
+  3  where substr(job,1,3)='MAN';
+
+JOB                                                                                                 
+---------                                                                                           
+MANAGER                                                                                             
+MANAGER                                                                                             
+MANAGER                                                                                             
+
+SQL> spool off

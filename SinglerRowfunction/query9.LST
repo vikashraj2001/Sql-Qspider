@@ -1,0 +1,93 @@
+SQL> select instr('HELLLLL','L',1,length('HELLLLL')
+  2  from dual;
+from dual
+*
+ERROR at line 2:
+ORA-00907: missing right parenthesis 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select instr('HELLLLL','L',1,length('HELLLLL'))
+  2* from dual
+SQL> /
+
+INSTR('HELLLLL','L',1,LENGTH('HELLLLL'))                                                            
+----------------------------------------                                                            
+                                       0                                                            
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select instr('HELLLLL','L',1,)
+  2* from dual
+SQL> /
+select instr('HELLLLL','L',1,)
+                             *
+ERROR at line 1:
+ORA-00936: missing expression 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select instr('HELLLLL','L',1)
+  2* from dual
+SQL> /
+
+INSTR('HELLLLL','L',1)                                                                              
+----------------------                                                                              
+                     3                                                                              
+
+SQL> select *
+  2  from dual
+  3  where instr('HELLLLL','L',1)>=1;
+
+D                                                                                                   
+-                                                                                                   
+X                                                                                                   
+
+SQL> select instr('HELLLLL','L',1,5)
+  2  from dual;
+
+INSTR('HELLLLL','L',1,5)                                                                            
+------------------------                                                                            
+                       7                                                                            
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select instr('HELLLLL','L',1)
+  2* from dual
+SQL> /
+
+INSTR('HELLLLL','L',1)                                                                              
+----------------------                                                                              
+                     3                                                                              
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select instr('HELLLLL','L',0)
+  2* from dual
+SQL> 
+SQL> /
+
+INSTR('HELLLLL','L',0)                                                                              
+----------------------                                                                              
+                     0                                                                              
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select instr('HELLLLL','L',1)
+  2* from dual
+SQL> 
+SQL> /
+
+INSTR('HELLLLL','L',1)                                                                              
+----------------------                                                                              
+                     3                                                                              
+
+SQL> spool off

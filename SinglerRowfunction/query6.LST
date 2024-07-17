@@ -1,0 +1,110 @@
+SQL> select ename
+  2  from emp
+  3  where instr(ename,'L',1);
+where instr(ename,'L',1)
+                       *
+ERROR at line 3:
+ORA-00920: invalid relational operator 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select ename
+  2  from emp
+  3* where instr(ename,'L',1)!=0
+SQL> /
+
+ENAME                                                                                               
+----------                                                                                          
+ALLEN                                                                                               
+BLAKE                                                                                               
+CLARK                                                                                               
+MILLER                                                                                              
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select ename
+  2  from emp
+  3* where instr(ename,'L',1,1)!=0
+SQL> /
+
+ENAME                                                                                               
+----------                                                                                          
+ALLEN                                                                                               
+BLAKE                                                                                               
+CLARK                                                                                               
+MILLER                                                                                              
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select ename
+  2  from emp
+  3* where instr(ename,'L',1,1)=1
+SQL> /
+
+no rows selected
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select ename
+  2  from emp
+  3* where instr(ename,'L',1,0)!=0
+SQL> /
+from emp
+     *
+ERROR at line 2:
+ORA-01428: argument '0' is out of range 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select ename
+  2  from emp
+  3* where instr(ename,'L',1)!=0
+SQL> /
+
+ENAME                                                                                               
+----------                                                                                          
+ALLEN                                                                                               
+BLAKE                                                                                               
+CLARK                                                                                               
+MILLER                                                                                              
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select ename
+  2  from emp
+  3* where instr(ename,'L',1)=1
+SQL> /
+
+no rows selected
+
+SQL> select ename
+  2  from emp;
+
+ENAME                                                                                               
+----------                                                                                          
+SMITH                                                                                               
+ALLEN                                                                                               
+WARD                                                                                                
+JONES                                                                                               
+MARTIN                                                                                              
+BLAKE                                                                                               
+CLARK                                                                                               
+SCOTT                                                                                               
+KING                                                                                                
+TURNER                                                                                              
+ADAMS                                                                                               
+JAMES                                                                                               
+FORD                                                                                                
+MILLER                                                                                              
+
+14 rows selected.
+
+SQL> spool off

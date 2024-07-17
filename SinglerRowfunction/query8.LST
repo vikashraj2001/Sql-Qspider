@@ -1,0 +1,30 @@
+SQL> select jon
+  2  from emp
+  3  where instr(job,'MAN',1)!=0;
+select jon
+       *
+ERROR at line 1:
+ORA-00904: "JON": invalid identifier 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select job
+  2  from emp
+  3* where instr(job,'MAN',1)!=0
+SQL> /
+
+JOB                                                                                                 
+---------                                                                                           
+SALESMAN                                                                                            
+SALESMAN                                                                                            
+MANAGER                                                                                             
+SALESMAN                                                                                            
+MANAGER                                                                                             
+MANAGER                                                                                             
+SALESMAN                                                                                            
+
+7 rows selected.
+
+SQL> spool off

@@ -1,0 +1,47 @@
+SQL> select *
+  2  from dept
+  3  ;
+
+    DEPTNO DNAME          LOC                                                                       
+---------- -------------- -------------                                                             
+        10 ACCOUNTING     NEW YORK                                                                  
+        20 RESEARCH       DALLAS                                                                    
+        30 SALES          CHICAGO                                                                   
+        40 OPERATIONS     BOSTON                                                                    
+
+SQL> select dname
+  2  from emp
+  3  where instr(dname,'O',1)='O';
+where instr(dname,'O',1)='O'
+            *
+ERROR at line 3:
+ORA-00904: "DNAME": invalid identifier 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select dname
+  2  from dept
+  3* where instr(dname,'O',1)='O'
+SQL> /
+where instr(dname,'O',1)='O'
+                         *
+ERROR at line 3:
+ORA-01722: invalid number 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select dname
+  2  from dept
+  3* where instr(dname,'O',1)!=0
+SQL> /
+
+DNAME                                                                                               
+--------------                                                                                      
+ACCOUNTING                                                                                          
+OPERATIONS                                                                                          
+
+SQL> spool off

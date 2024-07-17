@@ -1,0 +1,19 @@
+SQL> select instr('QSPIDERS','S',1)
+  2  from dual;
+
+INSTR('QSPIDERS','S',1)                                                                             
+-----------------------                                                                             
+                      2                                                                             
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select instr('QSPIDERS','s',1)
+  2* from dual
+SQL> /
+
+INSTR('QSPIDERS','S',1)                                                                             
+-----------------------                                                                             
+                      0                                                                             
+
+SQL> spool off

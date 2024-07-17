@@ -1,0 +1,27 @@
+SQL> select job
+  2  from emp
+  3  where substr(job,1,3);
+where substr(job,1,3)
+                    *
+ERROR at line 3:
+ORA-00920: invalid relational operator 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select job
+  2  from emp
+  3* where substr(job,1,3)='MAN'
+SQL> \
+SP2-0042: unknown command "\" - rest of line ignored.
+SQL> /
+
+JOB                                                                                                 
+---------                                                                                           
+MANAGER                                                                                             
+MANAGER                                                                                             
+MANAGER                                                                                             
+
+SQL> 
+SQL> spool off
