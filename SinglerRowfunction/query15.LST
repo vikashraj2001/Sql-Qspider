@@ -1,0 +1,40 @@
+SQL> select hiredate\
+  2  from emp
+  3  where to_char(hiredate,'DAY')='SUNDAY';
+select hiredate\
+               *
+ERROR at line 1:
+ORA-00911: invalid character 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select hiredate
+  2  from emp
+  3* where to_char(hiredate,'DAY')='SUNDAY'
+SQL> /
+
+no rows selected
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select hiredate
+  2  from emp
+  3* where to_char(hiredate,'D')='SUNDAY'
+SQL> /
+
+no rows selected
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select hiredate
+  2  from emp
+  3* where to_char(hiredate,'DAY')='SUNDAY'and  to_char(hiredate,'MONTH')='MAY'
+  4  /
+
+no rows selected
+
+SQL> spool off

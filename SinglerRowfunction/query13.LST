@@ -1,0 +1,27 @@
+SQL> -- 2. Display all the employees whose job ends with string 'MAN' --
+SQL> select *
+  2  from emp
+  3  where substr(job,-3)='MAN';;
+where substr(job,-3)='MAN';
+                          *
+ERROR at line 3:
+ORA-00911: invalid character 
+
+
+SQL> 
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select *
+  2  from emp
+  3* where substr(job,-3)='MAN'
+SQL> /
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO               
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------               
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30               
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30               
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30               
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30               
+
+SQL> spool off

@@ -1,0 +1,38 @@
+SQL> select hiredate
+  2  from emp
+  3  where to_char(hiredate,'length(;
+ERROR:
+ORA-01756: quoted string not properly terminated 
+
+
+SQL> select *
+  2  from tab;
+
+TNAME                          TABTYPE  CLUSTERID                                                   
+------------------------------ ------- ----------                                                   
+DEPT                           TABLE                                                                
+EMP                            TABLE                                                                
+BONUS                          TABLE                                                                
+SALGRADE                       TABLE                                                                
+
+SQL> select hiredate
+  2  from emp
+  3  where  to_char(hirdate,'YY')='YY/2'
+  4  ;
+where  to_char(hirdate,'YY')='YY/2'
+               *
+ERROR at line 3:
+ORA-00904: "HIRDATE": invalid identifier 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select hiredate
+  2  from emp
+  3* where  to_char(hiredate,'YY')='YY/4'
+  4  /
+
+no rows selected
+
+SQL> spool off
